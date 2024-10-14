@@ -1,24 +1,24 @@
-# Pronóstico de Surf para las Mañanas en Rio de Janeiro
+# Surf Forecast for Morning Sessions in Rio de Janeiro
 
-## Descripción
+## Description
 
-Este proyecto es una aplicación en Python que consulta el pronóstico del tiempo para la ciudad de **Rio de Janeiro** entre las **5:00 AM y 8:00 AM** durante los próximos **3 días**. La aplicación está orientada a quienes hacen surf por la mañana y envía notificaciones con las condiciones climáticas a través de **Twilio SMS**.
+This Python application retrieves the weather forecast for **Rio de Janeiro** between **5:00 AM and 8:00 AM** for the next **3 days**, specifically for those who surf in the early morning. The app uses the **WeatherAPI** to gather data and sends notifications via **Twilio SMS**.
 
-### Funcionalidades
+### Features
 
-- Obtención del pronóstico del clima entre las 5:00 AM y 8:00 AM de los próximos 3 días.
-- Filtrado por horas para obtener información específica para la mañana.
-- Envío de alertas climáticas vía SMS utilizando **Twilio**.
-- Información clave: fecha, hora, condición climática, temperatura, y probabilidad de lluvia.
+- Fetches weather forecast data between 5:00 AM and 8:00 AM for the next 3 days.
+- Filters specific hours to provide relevant morning weather information.
+- Sends weather alerts via **Twilio SMS**.
+- Key information includes: date, hour, weather condition, temperature, and probability of rain.
 
-## Requisitos
+## Requirements
 
-### Claves API
+### API Keys
 
-1. **Twilio**: Necesitarás una cuenta de Twilio para enviar mensajes SMS. Coloca tus credenciales en un archivo `credentials.json` en la raíz del proyecto.
-2. **WeatherAPI**: Necesitarás una clave de API de WeatherAPI para obtener datos del clima.
+1. **Twilio**: You need a Twilio account to send SMS messages. Place your credentials in a `credentials.json` file at the root of the project.
+2. **WeatherAPI**: You will need an API key from WeatherAPI to get weather data.
 
-El archivo `credentials.json` debe tener la siguiente estructura:
+The `credentials.json` file should have the following structure:
 
 ```json
 {

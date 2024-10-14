@@ -1,15 +1,13 @@
 import requests
 import pandas as pd
-import matplotlib.pyplot as plt
 from twilio.rest import Client
 from tqdm import tqdm
 import json
 
 
+
 def load_credentials(filepath='credentials.json'):
-    """
-    Load credentials from a JSON file.
-    """
+
     with open(filepath) as file:
         credentials = json.load(file)
     return credentials
@@ -29,16 +27,13 @@ def get_forecast(day, hour_index):
 
 
 # Función para obtener los datos del clima para Rio de Janeiro
-
 def fetch_weather_data(city, api_key, days=3):
-    """
-    Fetch weather data for a city using the WeatherAPI.
-    """
     url = f'http://api.weatherapi.com/v1/forecast.json?key={api_key}&q={city}&days={days}&aqi=no&alerts=no'
     response = requests.get(url)
     return response.json()
 
 
+# Crea el dataframe resultante
 def build_forecast_dataframe(cities, api_key, days=3):
 
     data = []
@@ -89,9 +84,7 @@ def send_alert_via_twilio(alert_df, city, client, phone_number, to_phone_number)
         print('Mensaje enviado: ' + message.sid)
 
 def main():
-    """
-    Main function to execute the weather alert.
-    """
+
     # Cargar credenciales
     credentials = load_credentials()
 
@@ -100,6 +93,7 @@ def main():
     api_key = credentials['WEATHER_API']['API_KEY']
     phone_number = credentials['TWILIO']['PHONE_NUMBER']
 
+    # Aqui puedes poner tu número de teléfono para probar el programa
     to_number_phone ='+5521977319999'
 
     # Crear cliente Twilio
@@ -109,7 +103,7 @@ def main():
     df = build_forecast_dataframe(city, api_key, days=3)
     print(df)
 
-    # Enviar alertas si hay condiciones climáticas adversas
+    # Enviar notoficación de estado del clima para los tres siguientes días
     send_alert_via_twilio(df, city, client, phone_number, to_number_phone)
 
 if __name__ == "__main__":
